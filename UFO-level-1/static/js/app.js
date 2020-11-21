@@ -18,3 +18,21 @@ tableData.forEach(function(ufoSighting){
       });
     });
 
+// Select the button
+var button = d3.select("#filter-btn");
+button.on("click", function() {
+
+    tbody.html("");
+
+    // Select the input date get the raw HTML nodes
+    var inputElement = d3.select("#datetime");
+    // Get the value property of the input date, state, shape
+    var inputValue = inputElement.property("value");
+    // console.log input value
+    console.log(inputValue);
+    // Filter Data with datetime equal to input value
+    var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
+    // console.log filter values
+    console.log(filteredData);
+
+    
